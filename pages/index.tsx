@@ -1,86 +1,113 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import Header from "../components/Header";
+import Head from "next/head";
+import Hero from "../components/Hero";
+import WorkExperience from "../components/WorkExperience";
+import Skills from "../components/Skills";
+import {
+  Skill,
+  Experience,
+  References,
+  CodeProjects,
+  Leadership,
+  Interests,
+} from "../typings";
+import { GetStaticProps } from "next";
+import { fetchSkills } from "../utils/fetchSkills";
+import { fetchExperience } from "../utils/fetchExperience";
+import { fetchReferences } from "../utils/fetchReferences";
+import { fetchCodeProjects } from "../utils/fetchCodeProjects";
+import { fetchLeadership } from "../utils/fetchLeadership";
+import PrevProjects from "../components/PrevProjects";
+import LeadershipExp from "../components/LeadershipExp";
+import ProfReferences from "../components/ProfReferences";
+import Footer from "../components/Footer";
+import Interest from "../components/Interest";
+import { fetchInterests } from "../utils/fetchInterests";
+import Link from "next/link";
+import Image from "next/image";
 
-const Home: NextPage = () => {
+type Props = {
+  skills: Skill[];
+  experience: Experience[];
+  references: References[];
+  codeProjects: CodeProjects[];
+  leadership: Leadership[];
+  interests: Interests[];
+};
+function Home({
+  skills,
+  experience,
+  references,
+  codeProjects,
+  leadership,
+  interests,
+}: Props) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Shaylee's Website</title>
       </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
+      <Header />
+      <section id="hero" className="snap-center">
+        <Hero />
+      </section>
+      <section id="skills" className="snap-start">
+        <Skills skills={skills} />
+      </section>
+      <section id="experience" className="snap-center">
+        <WorkExperience experience={experience} />
+      </section>
+      <section id="projects" className="snap-start">
+        <PrevProjects codeProjects={codeProjects} />
+      </section>
+      <section id="leadership" className="snap-center">
+        <LeadershipExp leadership={leadership} />
+      </section>
+      <section id="interests" className="snap-center">
+        <Interest interests={interests} />
+      </section>
+      <section id="references" className="snap-start">
+        <ProfReferences references={references} />
+      </section>
+      <section className="snap-start">
+        <Footer />
+      </section>
+      <Link href="#hero">
+        <footer className="sticky bottom-20 w-full cursor-pointer">
+          <div className="flex justify-start m-10">
+            <Image
+              width={20}
+              height={20}
+              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer animate-pulse"
+              src="/../public/me.png"
+              alt=""
+            />
+          </div>
+        </footer>
+      </Link>
     </div>
-  )
+  );
 }
 
-export default Home
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const skills: Skill[] = await fetchSkills();
+  const experience: Experience[] = await fetchExperience();
+  const references: References[] = await fetchReferences();
+  const codeProjects: CodeProjects[] = await fetchCodeProjects();
+  const leadership: Leadership[] = await fetchLeadership();
+  const interests: Interests[] = await fetchInterests();
+
+  return {
+    props: {
+      skills,
+      experience,
+      references,
+      codeProjects,
+      leadership,
+      interests,
+    },
+    revalidate: 10,
+  };
+};
+
+export default Home;
