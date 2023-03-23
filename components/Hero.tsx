@@ -4,10 +4,8 @@ import Link from "next/link";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundShape from "./BackgroundShape";
 
-type Props = {};
-
-function Hero({}: Props) {
-  const [text, count] = useTypewriter({
+function Hero({}) {
+  const [text] = useTypewriter({
     words: [
       "Hi, I'm Shaylee Meyer",
       "Dog Mom",
@@ -26,7 +24,7 @@ function Hero({}: Props) {
         width={175}
         height={175}
         className="relative mx-auto rounded-full object-cover "
-        src="/../public/me.png"
+        src="/static/me.png"
         alt={""}
       />
       <div>

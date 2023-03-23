@@ -12,17 +12,17 @@ import {
   Interests,
 } from "../typings";
 import { GetStaticProps } from "next";
-import { fetchSkills } from "../utils/fetchSkills";
-import { fetchExperience } from "../utils/fetchExperience";
-import { fetchReferences } from "../utils/fetchReferences";
-import { fetchCodeProjects } from "../utils/fetchCodeProjects";
-import { fetchLeadership } from "../utils/fetchLeadership";
+//import { fetchSkills } from "../utils/fetchSkills";
+//import { fetchExperience } from "../utils/fetchExperience";
+//import { fetchReferences } from "../utils/fetchReferences";
+//import { fetchCodeProjects } from "../utils/fetchCodeProjects";
+//import { fetchLeadership } from "../utils/fetchLeadership";
 import PrevProjects from "../components/PrevProjects";
 import LeadershipExp from "../components/LeadershipExp";
 import ProfReferences from "../components/ProfReferences";
 import Footer from "../components/Footer";
 import Interest from "../components/Interest";
-import { fetchInterests } from "../utils/fetchInterests";
+//import { fetchInterests } from "../utils/fetchInterests";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -79,7 +79,7 @@ function Home({
               width={20}
               height={20}
               className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer animate-pulse"
-              src="/../public/me.png"
+              src="/static/me.png"
               alt=""
             />
           </div>
@@ -89,13 +89,74 @@ function Home({
   );
 }
 
+export async function fetchSkills() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/getSkills`);
+  const data = await res.json();
+  const skills: Skill[] = data.skills;
+
+  return skills;
+}
+
+export async function fetchReferences() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}api/getReferences`
+  );
+  const data = await res.json();
+  const references: References[] = data.references;
+
+  return references;
+}
+
+export async function fetchLeadership() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}api/getLeadership`
+  );
+
+  const data = await res.json();
+  const leadership: Leadership[] = data.leadership;
+
+  return leadership;
+}
+export async function fetchInterests() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}api/getInterests`
+  );
+
+  const data = await res.json();
+  const interests: Interests[] = data.interests;
+
+  return interests;
+}
+
+export async function fetchExperience() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}api/getExperience`
+  );
+
+  const data = await res.json();
+  const experience: Experience[] = data.experience;
+
+  return experience;
+}
+
+export async function fetchCodeProjects() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}api/getCodeProjects`
+  );
+
+  const data = await res.json();
+  const codeProjects: CodeProjects[] = data.codeProjects;
+
+  return codeProjects;
+}
+
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const skills: Skill[] = await fetchSkills();
-  const experience: Experience[] = await fetchExperience();
-  const references: References[] = await fetchReferences();
-  const codeProjects: CodeProjects[] = await fetchCodeProjects();
-  const leadership: Leadership[] = await fetchLeadership();
-  const interests: Interests[] = await fetchInterests();
+  const skills = await fetchSkills();
+  const references = await fetchReferences();
+  const leadership = await fetchLeadership();
+  const interests = await fetchInterests();
+  const experience = await fetchExperience();
+  const codeProjects = await fetchCodeProjects();
 
   return {
     props: {

@@ -2,9 +2,7 @@ import React from "react";
 import Modal from "./modal/Modal";
 import { useState } from "react";
 
-type Props = {};
-
-export default function Footer({}: Props) {
+export default function Footer({}) {
   const [showModal, setShowModal] = useState(false);
   const onClose = () => {
     setShowModal(false);
