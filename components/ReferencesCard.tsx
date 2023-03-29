@@ -9,7 +9,7 @@ type Props = {
 function ReferencesCard({ references }: Props) {
   return (
     <div
-      className="max-w-sm  overflow-scroll scrollbar-thin shadow-xl shadow-slate-500 bg-[#9c6198] h-200 flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] 
+      className="max-w-sm overflow-scroll md:overflow-visible scrollbar-thin shadow-xl group relative flex shadow-slate-500 bg-[#9c6198] h-200 flex-col rounded-lg items-center space-y-7  
     p-10 transform transition duration-500 hover:scale-110 cursor-pointer  mt-20"
     >
       <div className="px-6 py-4 justify-center">
@@ -36,7 +36,9 @@ function ReferencesCard({ references }: Props) {
           <div className="font-bold text-[#362046] text-l mb-2">
             {references.company}
           </div>
-          <p className=" font-xs">{references.statement}</p>
+          <p className=" font-xs overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#b624e6] overflow-hidden h-5/6">
+            {references.statement}
+          </p>
         </div>
       </div>
     </div>

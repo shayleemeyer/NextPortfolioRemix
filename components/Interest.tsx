@@ -21,8 +21,8 @@ function Interest({ interests }: Props) {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Interests
       </h3>
-      <div className="flex flex-col h-5/6">
-        <div className="relative m-10  text-gray-500 text-xl flex justify-center align-middle ">
+      <div className="absolute top-32">
+        <div className=" flex flex-col-3 h-5/6  text-gray-500 text-xl  ">
           <button
             onClick={() => setSelected("books")}
             className="m-5 hover:underline"
@@ -43,27 +43,28 @@ function Interest({ interests }: Props) {
             Rhonda
           </button>
         </div>
-        <div className="grid grid-cols-3 gap-0 overflow-scroll h-4/6 scrollbar-thin  scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] ">
-          {selected === "podcasts"
-            ? interests
-                .filter((interests) => interests.interestId === "podcast")
-                ?.map((interests) => (
-                  <InterestCard key={interests._id} interests={interests} />
-                ))
-            : selected === "books"
-            ? interests
-                .filter((interests) => interests.interestId === "book")
-                ?.map((interests) => (
-                  <InterestCard key={interests._id} interests={interests} />
-                ))
-            : selected === "rhonda"
-            ? interests
-                .filter((interests) => interests.interestId === "Rhonda")
-                ?.map((interests) => (
-                  <InterestCard key={interests._id} interests={interests} />
-                ))
-            : null}
-        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-10 h-4/6 mt-5  absolute top-44  overflow-y-scroll scrollbar-thin scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] w-3/4 ">
+        {selected === "podcasts"
+          ? interests
+              .filter((interests) => interests.interestId === "podcast")
+              ?.map((interests) => (
+                <InterestCard key={interests._id} interests={interests} />
+              ))
+          : selected === "books"
+          ? interests
+              .filter((interests) => interests.interestId === "book")
+              ?.map((interests) => (
+                <InterestCard key={interests._id} interests={interests} />
+              ))
+          : selected === "rhonda"
+          ? interests
+              .filter((interests) => interests.interestId === "Rhonda")
+              ?.map((interests) => (
+                <InterestCard key={interests._id} interests={interests} />
+              ))
+          : null}
       </div>
     </motion.div>
   );

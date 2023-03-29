@@ -9,7 +9,7 @@ export default function Footer({}) {
   };
   return (
     <div>
-      <footer className="p-4 bg-[rgb(36,36,36)] rounded-lg shadow md:flex md:items-center md:justify-between md:p-6">
+      <footer className="p-4 bg-[rgb(36,36,36)] rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 bottom-2">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           2023 Shaylee Meyer. All Rights Reserved.
         </span>

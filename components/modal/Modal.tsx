@@ -1,6 +1,7 @@
 import React from "react";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import FileOpenIcon from "@mui/icons-material/FileOpen";
 
 type Props = {
   onClose: any;
@@ -29,6 +30,18 @@ function Modal({ onClose }: Props) {
                 <LocalPhoneOutlinedIcon />
                 <p className="mx-5 text-purple-200">906-282-6127</p>
               </div>
+              <li className="relative p-3  mx-10 flex-auto flex flex-row">
+                <FileOpenIcon />
+                <a
+                  download
+                  href="ShayleeMeyerResume.pdf"
+                  className="mx-5 text-purple-200 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download CV
+                </a>
+              </li>
             </div>
             {/*footer*/}
             <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">

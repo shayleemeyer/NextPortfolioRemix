@@ -43,7 +43,7 @@ function Home({
   interests,
 }: Props) {
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll z-0 scrollbar scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6]">
       <Head>
         <title>Shaylee's Website</title>
       </Head>
@@ -69,21 +69,20 @@ function Home({
       <section id="references" className="snap-start">
         <ProfReferences references={references} />
       </section>
-      <section className="snap-start">
-        <Footer />
-      </section>
       <Link href="#hero">
-        <footer className="sticky bottom-20 w-full cursor-pointer">
-          <div className="flex justify-start m-10">
-            <Image
-              width={20}
-              height={20}
-              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer animate-pulse"
-              src="/static/me.png"
-              alt=""
-            />
-          </div>
-        </footer>
+        <div className="sticky w-half cursor-pointer bottom-20 md:bottom-7 left-0 float-left ">
+          <footer>
+            <div className="flex justify-start m-10  w-26 ">
+              <Image
+                width={20}
+                height={20}
+                className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer animate-pulse"
+                src="/static/me.png"
+                alt=""
+              />
+            </div>
+          </footer>
+        </div>
       </Link>
     </div>
   );

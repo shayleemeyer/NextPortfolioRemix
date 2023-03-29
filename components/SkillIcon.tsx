@@ -35,9 +35,7 @@ function SkillIcon({ skill, directionLeft }: Props) {
         }
       >
         <div className=" flex items-center justify-center h-full">
-          <p className={"text-xl font-bold text-green-900 opacity-100"}>
-            {skill.title}
-          </p>
+          <p className={"text-xl font-bold opacity-100"}>{skill.title}</p>
         </div>
       </div>
     </div>

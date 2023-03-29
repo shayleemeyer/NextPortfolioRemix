@@ -8,10 +8,10 @@ function Hero({}) {
   const [text] = useTypewriter({
     words: [
       "Hi, I'm Shaylee Meyer",
-      "Dog Mom",
-      "Software Engineer",
+      "fullStackDeveloper",
+      "Debugging_SuperHero",
       "Science Enthusiast",
-      "Philosophy Enthusiast",
+      "Philosophy Devotee",
     ],
     loop: true,
     delaySpeed: 2000,
@@ -32,7 +32,7 @@ function Hero({}) {
           Software Engineer
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
-          <span className="mr-3">{text}</span>
+          <span className="mr-3 z-6">{text}</span>
           <Cursor cursorColor="#b624e6" />
         </h1>
         <div className="pt-5 z-20 relative">
