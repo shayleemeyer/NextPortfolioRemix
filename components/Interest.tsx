@@ -45,7 +45,7 @@ function Interest({ interests }: Props) {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-10 h-4/6 mt-5  absolute top-44  overflow-y-scroll scrollbar-thin scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] w-3/4 ">
+      <div className="grid grid-cols-3 gap-10 h-4/6 mt-5 basis-auto  absolute top-44  overflow-y-scroll scrollbar-thin scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] w-3/4 ">
         {selected === "podcasts"
           ? interests
               .filter((interests) => interests.interestId === "podcast")

@@ -19,7 +19,7 @@ function ProfReferences({ references }: Props) {
         References
       </h3>
       <div className="absolute top-28">
-        <div className=" flex space-x-10  snap-mandatory scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] ">
+        <div className=" flex space-x-10 basis-auto snap-mandatory scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] ">
           {references?.map((references) => (
             <ReferencesCard key={references._id} references={references} />
           ))}

@@ -19,7 +19,7 @@ function WorkExperience({ experience }: Props) {
         Experience
       </h3>
 
-      <div className="w-full h-3/4 flex space-x-5 absolute top-28 overflow-x-scroll p-10 snap-mandatory scrollbar-thin scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] ">
+      <div className="w-full h-3/4 flex space-x-5 absolute top-28 basis-auto overflow-x-scroll  p-10 snap-mandatory scrollbar-thin scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] ">
         {experience
           ?.slice(0)
           .reverse()

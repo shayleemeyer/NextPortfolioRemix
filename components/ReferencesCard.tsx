@@ -9,7 +9,7 @@ type Props = {
 function ReferencesCard({ references }: Props) {
   return (
     <div
-      className="max-w-sm overflow-scroll md:overflow-visible scrollbar-thin shadow-xl group relative flex shadow-slate-500 bg-[#9c6198] h-200 flex-col rounded-lg items-center space-y-7  
+      className="max-w-sm basis-auto overflow-scroll md:overflow-visible scrollbar-thin shadow-xl group relative flex shadow-slate-500 bg-[#9c6198] h-200 flex-col rounded-lg items-center space-y-7  
     p-10 transform transition duration-500 hover:scale-110 cursor-pointer  mt-20"
     >
       <div className="px-6 py-4 justify-center">

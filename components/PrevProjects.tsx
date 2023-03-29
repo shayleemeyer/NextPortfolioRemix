@@ -22,7 +22,7 @@ function PrevProjects({ codeProjects }: Props) {
       <p className="absolute top-32 text-gray-500 text-xs mr-5">
         Click on any project to see git repository
       </p>
-      <div className="overflow-scroll h-4/6 scrollbar-thin  scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] top-44 absolute">
+      <div className="overflow-scroll basis-auto h-4/6 scrollbar-thin  scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] top-44 absolute">
         <div className="grid grid-cols-2 gap-10 mt-10 md:mt-3">
           {codeProjects?.map((codeProjects) => (
             <ProjectsCard key={codeProjects._id} codeProjects={codeProjects} />

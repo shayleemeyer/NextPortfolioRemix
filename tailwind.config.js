@@ -8,5 +8,9 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [
+    require("tailwind-scrollbar"),
+    require("tailwindcss"),
+    require("autoprefixer"),
+  ],
 };

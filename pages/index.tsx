@@ -12,19 +12,14 @@ import {
   Interests,
 } from "../typings";
 import { GetStaticProps } from "next";
-//import { fetchSkills } from "../utils/fetchSkills";
-//import { fetchExperience } from "../utils/fetchExperience";
-//import { fetchReferences } from "../utils/fetchReferences";
-//import { fetchCodeProjects } from "../utils/fetchCodeProjects";
-//import { fetchLeadership } from "../utils/fetchLeadership";
 import PrevProjects from "../components/PrevProjects";
 import LeadershipExp from "../components/LeadershipExp";
 import ProfReferences from "../components/ProfReferences";
-import Footer from "../components/Footer";
 import Interest from "../components/Interest";
-//import { fetchInterests } from "../utils/fetchInterests";
 import Link from "next/link";
 import Image from "next/image";
+import { userAgent } from "next/server";
+import { useEffect, useState } from "react";
 
 type Props = {
   skills: Skill[];
@@ -42,31 +37,55 @@ function Home({
   leadership,
   interests,
 }: Props) {
+  const [snap, setSnap] = useState(true);
+  useEffect(() => {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf("safari") != -1) {
+      if (ua.indexOf("chrome") > -1) {
+        setSnap(true); // Chrome
+      } else {
+        setSnap(false); // Safari
+      }
+    }
+  }, []);
+  console.log("snap!", snap);
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll z-0 scrollbar scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6]">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory basis-auto overflow-y-scroll z-0 scrollbar scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6]">
       <Head>
         <title>Shaylee's Website</title>
       </Head>
       <Header />
-      <section id="hero" className="snap-center">
+      <section id="hero" className={snap ? "snap-center" : "snap-proximity"}>
         <Hero />
       </section>
-      <section id="skills" className="snap-start">
+      <section id="skills" className={snap ? "snap-start" : "snap-proximity"}>
         <Skills skills={skills} />
       </section>
-      <section id="experience" className="snap-center">
+      <section
+        id="experience"
+        className={snap ? "snap-center" : "snap-proximity"}
+      >
         <WorkExperience experience={experience} />
       </section>
-      <section id="projects" className="snap-start">
+      <section id="projects" className={snap ? "snap-start" : "snap-proximity"}>
         <PrevProjects codeProjects={codeProjects} />
       </section>
-      <section id="leadership" className="snap-center">
+      <section
+        id="leadership"
+        className={snap ? "snap-center" : "snap-proximity"}
+      >
         <LeadershipExp leadership={leadership} />
       </section>
-      <section id="interests" className="snap-center">
+      <section
+        id="interests"
+        className={snap ? "snap-center" : "snap-proximity"}
+      >
         <Interest interests={interests} />
       </section>
-      <section id="references" className="snap-start">
+      <section
+        id="references"
+        className={snap ? "snap-start" : "snap-proximity"}
+      >
         <ProfReferences references={references} />
       </section>
       <Link href="#hero">
