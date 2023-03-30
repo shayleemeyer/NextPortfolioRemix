@@ -28,10 +28,10 @@ function Hero({}) {
         alt={""}
       />
       <div>
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
+        <h2 className="text-xs md:text-lg uppercase text-gray-500 pb-2 tracking-[15px]">
           Software Engineer
         </h2>
-        <h1 className="text-5xl lg:text-6xl font-semibold px-10">
+        <h1 className="text-2xl lg:text-6xl md:text-4xl font-semibold px-10">
           <span className="mr-3 z-6">{text}</span>
           <Cursor cursorColor="#b624e6" />
         </h1>
@@ -46,7 +46,7 @@ function Hero({}) {
             <button className="heroButton">Portfolio</button>
           </Link>
           <Link href="#leadership">
-            <button className="heroButton">Leadership Experience</button>
+            <button className="heroButton">Leadership</button>
           </Link>
           <Link href="#interests">
             <button className="heroButton">Interests</button>

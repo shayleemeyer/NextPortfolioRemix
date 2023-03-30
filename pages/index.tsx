@@ -15,10 +15,10 @@ import { GetStaticProps } from "next";
 import PrevProjects from "../components/PrevProjects";
 import LeadershipExp from "../components/LeadershipExp";
 import ProfReferences from "../components/ProfReferences";
+import Footer from "../components/Footer";
 import Interest from "../components/Interest";
 import Link from "next/link";
 import Image from "next/image";
-import { userAgent } from "next/server";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -48,7 +48,7 @@ function Home({
       }
     }
   }, []);
-  console.log("snap!", snap);
+
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory basis-auto overflow-y-scroll z-0 scrollbar scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6]">
       <Head>
@@ -84,10 +84,11 @@ function Home({
       </section>
       <section
         id="references"
-        className={snap ? "snap-start" : "snap-proximity"}
+        className={snap ? "snap-center" : "snap-proximity"}
       >
         <ProfReferences references={references} />
       </section>
+
       <Link href="#hero">
         <div className="sticky w-half cursor-pointer bottom-20 md:bottom-7 left-0 float-left ">
           <footer>
@@ -103,6 +104,9 @@ function Home({
           </footer>
         </div>
       </Link>
+      <section id="footer" className={snap ? "snap-center" : "snap-proximity"}>
+        <Footer />
+      </section>
     </div>
   );
 }

@@ -26,5 +26,10 @@ export default {
       title: "Statement",
       type: "text",
     },
+    {
+      name: "linkedInLink",
+      title: "LinkedInLink",
+      type: "string",
+    },
   ],
 };

@@ -38,6 +38,7 @@ export interface References extends Base {
   referenceName: string;
   company: string;
   statement: string;
+  linkedInLink: string;
 }
 
 export interface CodeProjects extends Base {
