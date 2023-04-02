@@ -17,7 +17,7 @@ function Skills({ skills }: Props) {
         className="h-screen relative overflow-hidden flex-col text-lft md:flex-row
        max-w-full px-10 justify-evenly mx-auto items-center  hidden md:flex "
       >
-        <h3 className="absolute top-24 uppercase tracking-[20px] texxt-gray-500 text-2xl ">
+        <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500  text-2xl ">
           Skills
         </h3>
         <p className="absolute top-32 text-gray-500 text-xs mr-5 m-3 ">
@@ -35,15 +35,14 @@ function Skills({ skills }: Props) {
           </div>
         </div>
       </motion.div>
-      <div></div>
       <div
         className="h-screen flex relative overflow-hidden text-lft md:flex-row
        max-w-full px-10 justify-evenly items-center md:hidden "
       >
-        <h3 className="absolute top-24 uppercase tracking-[20px] texxt-gray-500 text-2xl ">
+        <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl ">
           Skills
         </h3>
-        <p className="absolute top-32 text-gray-500 text-xs mr-5 m-3 ">
+        <p className="absolute top-32 text-gray-500 text-xs mr-5 m-3 hidden md:visible ">
           Hover to see skill type and proficiency. Green is highly proficient
           and pink is proficient.
         </p>

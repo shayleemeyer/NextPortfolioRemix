@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundShape from "./BackgroundShape";
+import { useEffect, useState } from "react";
 
 function Hero({}) {
   const [text] = useTypewriter({
@@ -17,6 +18,17 @@ function Hero({}) {
     delaySpeed: 2000,
   });
 
+  const [snap, setSnap] = useState(true);
+  useEffect(() => {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf("safari") != -1) {
+      if (ua.indexOf("chrome") > -1) {
+        setSnap(true); // Chrome
+      } else {
+        setSnap(false); // Safari
+      }
+    }
+  }, []);
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden z-40">
       <BackgroundShape />
@@ -48,7 +60,7 @@ function Hero({}) {
           <Link href="#leadership">
             <button className="heroButton">Leadership</button>
           </Link>
-          <Link href="#interests">
+          <Link href="#interests" className={snap ? "" : "hidden"}>
             <button className="heroButton">Interests</button>
           </Link>
           <Link href="#references">

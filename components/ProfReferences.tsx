@@ -15,10 +15,10 @@ function ProfReferences({ references }: Props) {
       transition={{ duration: 1.5 }}
       className="h-screen  relative flex ustify-start md:justify-evenly mx-auto items-center "
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl ml-20">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl md:ml-auto ml-16">
         References
       </h3>
-      <div className="absolute overflow-auto top-28 j snap-mandatory scrollbar-thin scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] ">
+      <div className="absolute overflow-auto top-28 j snap-mandatory overflow-x-scroll  md: scrollbar-thin scrollbar-track-purple-400/20 scrollbar-thumb-[#b624e6] ">
         <div className=" flex space-x-10 basis-auto snap-mandatory ">
           {references?.map((references) => (
             <ReferencesCard key={references._id} references={references} />

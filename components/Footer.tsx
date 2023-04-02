@@ -9,7 +9,7 @@ export default function Footer({}) {
   };
   return (
     <div>
-      <footer className=" bg-[rgb(36,36,36)] rounded-lg shadow md:items-center md:justify-between md:p-6 bottom-0 hidden md:flex ">
+      <footer className=" bg-[rgb(36,36,36)] rounded-lg shadow md:items-center md:justify-between md:p-6 bottom-0 hidden xl:flex ">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           2023 Shaylee Meyer. All Rights Reserved.
         </span>
@@ -38,7 +38,7 @@ export default function Footer({}) {
         </ul>
       </footer>
       {showModal ? <Modal onClose={onClose} /> : null}
-      <div className="bg-[rgb(36,36,36)] rounded-lg shadow md:items-center md:justify-between md:p-6 bottom-0 flex md:hidden"></div>
+      <div className="bg-[rgb(36,36,36)] rounded-lg shadow md:items-center md:justify-between md:p-6 bottom-0 flex xl:hidden"></div>
     </div>
   );
 }
