@@ -32,13 +32,14 @@ function Hero({}) {
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden z-40">
       <BackgroundShape />
-      <Image
-        width={175}
-        height={175}
-        className="relative mx-auto rounded-full object-cover "
-        src="/static/me.png"
-        alt={""}
-      />
+      <div className="">
+        <img
+          className="relative mx-auto z-40 rounded-full object-cover w-48 h-48"
+          src="/static/me.png"
+          alt={""}
+        />
+      </div>
+
       <div>
         <h2 className="text-xs md:text-lg uppercase text-gray-500 pb-2 tracking-[15px]">
           Software Engineer
